@@ -55,7 +55,7 @@ class Student extends Person{
   }
 }
 
-void main(){
+void test(){
    Logger l1 = Logger();
    Logger l2 = Logger();
    Student s1 = Student.create(new Student("school","123",22));

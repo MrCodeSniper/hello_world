@@ -18,7 +18,7 @@ import 'package:flutter/material.dart';
     */
 
 
-void main(){
+void test(){
       ///数字类型 都可以表示int double
       num n = 1;
       num n1 = 1.0;

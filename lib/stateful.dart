@@ -94,15 +94,82 @@ class _StatefulGroupState extends State<StatefulApp>{
            ],
          ), onRefresh: _handleFresh):
         Container(
-          height: 100,
-          child: PageView(children: [ ///类似viewpager
-            _getPageView("测试1", Colors.blue),
-            _getPageView("测试2", Colors.red),
-            _getPageView("测试3", Colors.green),
-        ],),),
+          decoration: BoxDecoration(color:Colors.white),
+          alignment: Alignment.center,
+          child: Column(
+            children: [
+               Row(
+                 children: [
+                   ClipOval( //如果是正方形 会绘制成圆形 如果是长方形会绘制为椭圆
+                     clipBehavior: Clip.antiAlias, //裁剪抗锯齿
+                     child: SizedBox(
+                       width: 100,
+                       height: 100,
+                       child: Image.network("https://www.devio.org/img/avatar.png"),
+                     ),
+                   ),
+                   Padding(
+                     padding: EdgeInsets.all(10),
+                     child: ClipRRect( //圆角矩形控件
+                       borderRadius: BorderRadius.circular(10), //圆角插件
+                       child: Opacity( //透明度插件
+                         opacity: 0.5, //0f-1f
+                         child: Image.network("https://www.devio.org/img/avatar.png",width: 100,height: 100,),
+                       ),
+                     ),
+                   ),
+                 ],
+               ),
+              Container(
+                margin: EdgeInsets.all(10),//四角值插件
+                height: 100,
+                child: PhysicalModel( // 主要的功能就是设置widget四边圆角，可以设置阴影颜色，和z轴高度 与clipRadius的区别在于 一个是裁剪 一个是包裹
+                  color: Colors.white,
+                  clipBehavior: Clip.antiAlias, //默认抗锯齿为null 无绘制效果
+                  elevation: 6.0,
+                  borderRadius: BorderRadius.circular(10),
+                   child: PageView(children: [ ///类似viewpager
+                     _getPageView("测试1", Colors.blue),
+                     _getPageView("测试2", Colors.red),
+                     _getPageView("测试3", Colors.green),
+                   ],),),
+                ),
+              FractionallySizedBox( //size 宽高权重区域插件
+                alignment: Alignment.center,
+                widthFactor: 0.55, //在column上宽度因子才有用 类似weight
+                child: Container(
+                  decoration: BoxDecoration(color: Colors.green),
+                  child: Text("文本内容",style: TextStyle(fontSize: 20),),
+                ),
+              ),
+              Stack( //类似framelayout的插件 具有叠加效果
+                children: [
+                  Image.network("https://www.devio.org/img/avatar.png",width: 100,height: 100,),
+                  Positioned( //在Stack中进行定位的插件
+                    left: 0, //距离层叠组件的距离
+                    bottom: 0,
+                    child: Image.network("https://www.devio.org/img/avatar.png",width: 50,height: 50,),)
+                ],
+              ),
+              Wrap(  //内容自动换行插件
+                 spacing: 10, //水平间距
+                 runSpacing: 10,//垂直间距
+                 children: [
+                   _getChip("你好"),
+                   _getChip("测试"),
+                   _getChip("啊啊啊"),
+                   _getChip("完全"),
+                   _getChip("加班"),
+                   _getChip("我去")
+                 ],
+              )
+            ],
+          ),),
       ),
     );
   }
+
+
 
 
   _getPageView(String title,Color color){
@@ -118,5 +185,16 @@ class _StatefulGroupState extends State<StatefulApp>{
     await Future.delayed(Duration(milliseconds: 2000));
     return null;
   }
+
+
+  _getChip(String title){
+    return Chip(
+        avatar: CircleAvatar(
+          child: Text(title.substring(0,1)),
+          backgroundColor: Colors.blue,
+        ), //圆形图标插件
+        label: Text(title));
+  }
+
 
 }

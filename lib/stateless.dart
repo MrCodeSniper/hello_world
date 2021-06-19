@@ -23,6 +23,12 @@ class StatelessApp extends StatelessWidget {
       home: new Scaffold(
         appBar: new AppBar(
           title: new Text('使用flutter 无状态控件'),
+          leading: GestureDetector(
+            onTap: (){
+              Navigator.pop(context);
+            },
+            child: Icon(Icons.arrow_back),
+          ),
         ),
         bottomNavigationBar: BottomNavigationBar( ///底部导航栏
           currentIndex: _currentIndex,

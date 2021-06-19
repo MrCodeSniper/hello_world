@@ -20,6 +20,12 @@ class _StatefulGroupState extends State<StatefulApp>{
       ),
       home: new Scaffold(
         appBar: new AppBar(
+          leading: GestureDetector(
+            onTap: (){
+              Navigator.pop(context);
+            },
+            child: Icon(Icons.arrow_back),
+          ),
           title: new Text('使用flutter 无状态控件'),
         ),
         floatingActionButton: FloatingActionButton(onPressed: () {  },
@@ -118,6 +124,10 @@ class _StatefulGroupState extends State<StatefulApp>{
                        ),
                      ),
                    ),
+                   Expanded(child: Container( //如果是行填充行的整个剩余空间
+                      decoration: BoxDecoration(color:Colors.green),
+                     child: Text("填充"),
+                   ))
                  ],
                ),
               Container(
@@ -162,6 +172,12 @@ class _StatefulGroupState extends State<StatefulApp>{
                    _getChip("加班"),
                    _getChip("我去")
                  ],
+              ),
+              Expanded(child: //如果是列填充整个列的剩余空间
+                Container(
+                  decoration: BoxDecoration(color:Colors.red),
+                  child: Text("填充"),
+                )
               )
             ],
           ),),

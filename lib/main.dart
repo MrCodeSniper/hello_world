@@ -4,6 +4,7 @@ import 'package:hello_world/stateful.dart';
 import 'package:hello_world/stateless.dart';
 
 import 'gesture.dart';
+import 'outside_route.dart';
 
 void main() => runApp(new MyApp());
 
@@ -44,6 +45,7 @@ class MyApp extends StatelessApp {
         "stateless": (BuildContext context) => StatelessApp(),
         "stateful": (BuildContext context) => StatefulApp(),
         "gesture": (BuildContext context) => GestureAppWidget(),
+        "outside_route": (BuildContext context) => OutSideRouteWidget(),
       },
     );
   }
@@ -76,6 +78,7 @@ class MyNavigatorState extends State<NavigatorWidget> {
           _getBtn("无状态", StatelessApp(), "stateless"),
           _getBtn("有状态", StatefulApp(), "stateful"),
           _getBtn("手势监听", GestureAppWidget(), "gesture"),
+          _getBtn("外部路由", OutSideRouteWidget(), "outside_route"),
         ],
       ),
     );

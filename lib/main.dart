@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:hello_world/stateful.dart';
 import 'package:hello_world/stateless.dart';
 
+import 'gesture.dart';
+
 void main() => runApp(new MyApp());
 
 /**
@@ -40,7 +42,8 @@ class MyApp extends StatelessApp {
         /// typedef WidgetBuilder = Widget Function(BuildContext context);
         /// widgetbuilder 其实是一个函数 返回widget 参数是BuildContext
         "stateless": (BuildContext context) => StatelessApp(),
-        "stateful": (BuildContext context) => StatefulApp()
+        "stateful": (BuildContext context) => StatefulApp(),
+        "gesture": (BuildContext context) => GestureAppWidget(),
       },
     );
   }
@@ -71,7 +74,8 @@ class MyNavigatorState extends State<NavigatorWidget> {
             });
           }),
           _getBtn("无状态", StatelessApp(), "stateless"),
-          _getBtn("有状态", StatefulApp(), "stateful")
+          _getBtn("有状态", StatefulApp(), "stateful"),
+          _getBtn("手势监听", GestureAppWidget(), "gesture"),
         ],
       ),
     );

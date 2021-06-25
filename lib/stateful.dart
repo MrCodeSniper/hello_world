@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class StatefulApp extends StatefulWidget {
@@ -209,7 +211,7 @@ class _StatefulGroupState extends State<StatefulApp>{
           child: Text(title.substring(0,1)),
           backgroundColor: Colors.blue,
         ), //圆形图标插件
-        label: Text(title));
+        label: Text(title,style: TextStyle(fontFamily: 'Mogov'),));
   }
 
 

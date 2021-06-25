@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class GestureAppWidget extends StatefulWidget {
@@ -70,6 +72,11 @@ class _GestureState extends State<GestureAppWidget> {
                           ),
                         ),
                       ),
+                    ),
+                    Image(
+                      width: 100,
+                      height: 100,
+                      image: AssetImage('images/logo.png'),
                     )
                   ],
                 )

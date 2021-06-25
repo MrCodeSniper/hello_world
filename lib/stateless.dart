@@ -18,7 +18,8 @@ class StatelessApp extends StatelessWidget {
     return new MaterialApp(
       title: '使用flutter 无状态控件',
       theme: ThemeData( ///主题颜色
-        primarySwatch: Colors.brown
+        primarySwatch: Colors.brown,
+        fontFamily: 'Mogov' ///默认全体生效
       ),
       home: new Scaffold(
         appBar: new AppBar(

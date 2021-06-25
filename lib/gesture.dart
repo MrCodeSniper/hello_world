@@ -46,22 +46,28 @@ class _GestureState extends State<GestureAppWidget> {
                       onTapDown: (detail)=>{ recordTouchMessage("放下") }, ///放下
                       child: Container(
                         padding: EdgeInsets.all(60),
-                        decoration: BoxDecoration(color: Colors.blue),
+                        decoration: BoxDecoration(color: Colors.red),
                         child: Text("触摸区域",style: TextStyle(color: Colors.white,fontSize: 36),),
                       ),
                     ),
                     Text(_touchMessage),
-                    Positioned(
-                      left: _movedX,
-                      top: _movedY,
-                      child: GestureDetector(
-                        onPanUpdate: (e)=>_doMove(e),
-                        child: Container(
-                          width: 72,
-                          height: 72,
-                          //圆弧为长宽的一半 为圆
-                          decoration: BoxDecoration(color: Colors.blue,
-                          borderRadius: BorderRadius.all(Radius.circular(36))),
+                  ],
+                ),
+                Stack(
+                  children: [
+                    Container(
+                      child:Positioned(
+                        left: _movedX,
+                        top: _movedY,
+                        child: GestureDetector(
+                          onPanUpdate: (e)=>_doMove(e),
+                          child: Container(
+                            width: 72,
+                            height: 72,
+                            //圆弧为长宽的一半 为圆
+                            decoration: BoxDecoration(color: Colors.blue,
+                                borderRadius: BorderRadius.all(Radius.circular(36))),
+                          ),
                         ),
                       ),
                     )

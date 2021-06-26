@@ -16,14 +16,22 @@ class LifecycleWidget extends StatefulWidget {
   }
 }
 
-class _StatefulGroupState extends State<LifecycleWidget>{ ///生命周期
+class _StatefulGroupState extends State<LifecycleWidget> with WidgetsBindingObserver{ ///生命周期
   int _currentCount = 0;
 
   @override
   void initState() {
     ///类似oncreate 初始化阶段
     print("-------initState-------");
+    WidgetsBinding.instance?.addObserver(this); ///添加APP生命周期监听
     super.initState();
+  }
+
+  /// 应用进入后台 先切换inactive 再切换 paused 返回前台为resumed
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    print("-------APP STATE: $state-------");
+    super.didChangeAppLifecycleState(state);
   }
 
   @override
@@ -50,6 +58,7 @@ class _StatefulGroupState extends State<LifecycleWidget>{ ///生命周期
   void dispose() {
     ///类似onDestroy 插件销毁 常用来回收资源 关闭连接 最后触发
     print("-------dispose-------");
+    WidgetsBinding.instance?.removeObserver(this); ///回收APP生命周期监听
     super.dispose();
   }
 

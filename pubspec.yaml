@@ -32,6 +32,7 @@ dependencies:
   # 引入外部包
   english_words: ^4.0.0
   url_launcher: ^6.0.7
+  image_picker: ^0.5.0+3
 
 dev_dependencies:
   flutter_test:

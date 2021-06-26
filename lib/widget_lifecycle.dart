@@ -19,6 +19,8 @@ class LifecycleWidget extends StatefulWidget {
 class _StatefulGroupState extends State<LifecycleWidget> with WidgetsBindingObserver{ ///生命周期
   int _currentCount = 0;
 
+  Brightness? _brightness = Brightness.light;
+
   @override
   void initState() {
     ///类似oncreate 初始化阶段
@@ -69,7 +71,8 @@ class _StatefulGroupState extends State<LifecycleWidget> with WidgetsBindingObse
     return new MaterialApp(
       title: '插件的生命周期',
       theme: ThemeData( ///主题颜色
-          primarySwatch: Colors.brown
+          primarySwatch: Colors.brown,
+          brightness: _brightness
       ),
       home: new Scaffold(
         appBar: new AppBar(
@@ -87,6 +90,9 @@ class _StatefulGroupState extends State<LifecycleWidget> with WidgetsBindingObse
           child: Container(
             child: Column(
               children: [
+                RaisedButton(onPressed: ()=>_onChangeTheme(),
+                  child: Text("切换主题",style: TextStyle(fontSize: 20),),
+                ),
                 RaisedButton(onPressed: ()=>_onClick(),
                   child: Text("点击我",style: TextStyle(fontSize: 20),),
                 ),
@@ -104,7 +110,15 @@ class _StatefulGroupState extends State<LifecycleWidget> with WidgetsBindingObse
       _currentCount+=1;
     });
   }
-
+  _onChangeTheme(){
+    setState(() {
+       if(_brightness == Brightness.light){
+         _brightness = Brightness.dark;
+       }else{
+         _brightness = Brightness.light;
+       }
+    });
+  }
 
 
 }

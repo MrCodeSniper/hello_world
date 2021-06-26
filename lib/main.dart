@@ -26,6 +26,7 @@ class MyApp extends StatelessApp {
       title: 'Welcome to Flutter',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        brightness: Brightness.dark
       ),
       home: Scaffold(
         appBar: AppBar(

@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
+// import 'package:image_picker/image_picker.dart';
 
 
 
@@ -70,18 +70,18 @@ class _StatefulGroupState extends State<ImagePickerWidget>{
 
 /*拍照*/
   _takePhoto() async {
-    var image = await ImagePicker.pickImage(source: ImageSource.camera);
+    // var image = await ImagePicker.pickImage(source: ImageSource.camera);
 
     setState(() {
-      _imgPath = image;
+      // _imgPath = image;
     });
   }
 
   /*相册*/
   _openGallery() async {
-    var image = await ImagePicker.pickImage(source: ImageSource.gallery);
+    // var image = await ImagePicker.pickImage(source: ImageSource.gallery);
     setState(() {
-      _imgPath = image;
+      // _imgPath = image;
     });
   }
 

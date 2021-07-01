@@ -32,7 +32,8 @@ dependencies:
   # 引入外部包
   english_words: ^4.0.0
   url_launcher: ^6.0.7
-  image_picker: ^0.5.0+3
+  path_provider: ^2.0.2
+#  image_picker: ^0.5.0+3
 
 dev_dependencies:
   flutter_test:
@@ -54,6 +55,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
      - images/logo.png
+     - images/ok.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -2,6 +2,7 @@ import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:hello_world/stateful.dart';
 import 'package:hello_world/stateless.dart';
+import 'package:hello_world/widget_image.dart';
 import 'package:hello_world/widget_imagepicker.dart';
 import 'package:hello_world/widget_lifecycle.dart';
 
@@ -51,6 +52,7 @@ class MyApp extends StatelessApp {
         "outside_route": (BuildContext context) => OutSideRouteWidget(),
         "lifecycle": (BuildContext context) => LifecycleWidget(),
         "imagepicker": (BuildContext context) => ImagePickerWidget(),
+        "image": (BuildContext context) => ImageWidget(),
       },
     );
   }
@@ -86,6 +88,7 @@ class MyNavigatorState extends State<NavigatorWidget> {
           _getBtn("外部路由", OutSideRouteWidget(), "outside_route"),
           _getBtn("生命周期", LifecycleWidget(), "lifecycle"),
           _getBtn("图片选择", ImagePickerWidget(), "imagepicker"),
+          _getBtn("图片控件", ImageWidget(), "image"),
         ],
       ),
     );
